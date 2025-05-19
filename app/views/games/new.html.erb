@@ -1,0 +1,18 @@
+<div class="container mx-auto my-4" style="width: 600px;">
+  <div class="d-flex">
+    <% @letters.each do |letter| %>
+      <div class="p-3 m-2 bg-primary text-white"><%= letter %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <form action="score" method="POST" data-turbo="false">
+      <input type="text" name="attempt">
+      <input type="submit" value="submit">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :start_time, @start_time %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
+  </div>
+
+</div>
